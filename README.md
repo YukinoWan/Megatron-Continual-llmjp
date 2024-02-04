@@ -1,3 +1,38 @@
+# Environment Setup
+```
+cd ~
+echo 'export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/usr/local/cuda-11.8/lib64"' >> ~/.bash_profile
+source ~/.bash_profile
+```
+Replace cuda-11.8 with your cuda directory.
+Create a virtual environment with python=3.10
+```
+conda create -n venv python=3.10
+conda activate venv
+```
+Install dependencies.
+```
+pip install -r requirements.txt
+```
+
+## Prepare llmjp-13b tokenizer
+In repository: [https://github.com/llm-jp/llm-jp-tokenizer/tree/main/models/ver2.1](https://github.com/llm-jp/llm-jp-tokenizer/tree/main), 
+llm-jp-13b-v1.0 tokenizer is in ./models/ver2.1/code10k_en20k_ja30k.ver2.1.model
+
+## Data preprocessing
+
+```
+python tools/preprocess_data.py \
+       --input /fast/mixed-pile-jmedroberta/ja_train.jsonl \
+       --output-prefix /fast/wan/med_train/ja \
+       --tokenizer-type SentencePieceTokenizer \
+       --tokenizer-model /home/zhen/Megatron-DeepSpeed/models/llm-jp-tokenizer/models/ver2.1/code10k_en20k_ja30k.ver2.1.model \
+       --workers 16 \
+       --append-eod
+```
+
+
+
 Megatron ([1](https://arxiv.org/pdf/1909.08053.pdf), [2](https://arxiv.org/pdf/2104.04473.pdf), and [3](https://arxiv.org/pdf/2205.05198)) is a large, powerful transformer developed by the Applied Deep Learning Research team at NVIDIA. This repository is for ongoing research related to training large transformer language models at scale. We developed efficient, model-parallel ([tensor](https://arxiv.org/pdf/1909.08053.pdf), [sequence](https://arxiv.org/pdf/2205.05198), and [pipeline](https://arxiv.org/pdf/2104.04473.pdf)), and multi-node pre-training of transformer based models such as [GPT](https://arxiv.org/abs/2005.14165), [BERT](https://arxiv.org/pdf/1810.04805.pdf), and [T5](https://arxiv.org/abs/1910.10683) using mixed precision.
 
 Below are some of the projects where we have directly used Megatron:
