@@ -4,6 +4,7 @@ cd ~
 echo 'export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/usr/local/cuda-11.8/lib64"' >> ~/.bash_profile
 source ~/.bash_profile
 ```
+
 Replace cuda-11.8 with your cuda directory.
 Create a virtual environment with python=3.10
 ```
@@ -288,6 +289,9 @@ mpirun -np $NUM_GPUS \
     --distributed-backend nccl \
     &>>${log_path}/${jobname}_${host}_${current_time}.log
 ```
+
+
+
 
 
 
