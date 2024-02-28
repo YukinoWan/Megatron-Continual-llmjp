@@ -1,9 +1,10 @@
+# Introduction
 This repository is for continually training llmjp-13b using the Megatron_LM framework.
 Please refer to [Megatron-LMによるLLMJP-13Bの継続学習](https://docs.google.com/document/d/1rcZT5DTFsatrGjR-3o2QYYOqA8FZ1DdE8VDWhIr7Jts/edit?usp=sharing) for the tutorial.
 
 
 
-
+Below is the original REDAME.md from Megatron-LM
 
 Megatron ([1](https://arxiv.org/pdf/1909.08053.pdf), [2](https://arxiv.org/pdf/2104.04473.pdf), and [3](https://arxiv.org/pdf/2205.05198)) is a large, powerful transformer developed by the Applied Deep Learning Research team at NVIDIA. This repository is for ongoing research related to training large transformer language models at scale. We developed efficient, model-parallel ([tensor](https://arxiv.org/pdf/1909.08053.pdf), [sequence](https://arxiv.org/pdf/2205.05198), and [pipeline](https://arxiv.org/pdf/2104.04473.pdf)), and multi-node pre-training of transformer based models such as [GPT](https://arxiv.org/abs/2005.14165), [BERT](https://arxiv.org/pdf/1810.04805.pdf), and [T5](https://arxiv.org/abs/1910.10683) using mixed precision.
 
